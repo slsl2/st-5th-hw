@@ -1,8 +1,9 @@
-import { useContext } from "react";
-import { TextContext } from "../App";
+import React from "react";
+import { useSelector } from "react-redux";
 
-export default function TextList() {
-  const { texts } = useContext(TextContext);
+function TextList() {
+  const texts = useSelector((state) => state.text.texts);
+
   return (
     <ul>
       {texts.map((text, index) => (
@@ -11,3 +12,5 @@ export default function TextList() {
     </ul>
   );
 }
+
+export default TextList;
